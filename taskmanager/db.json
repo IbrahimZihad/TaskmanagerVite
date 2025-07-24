@@ -1,0 +1,212 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "username": "user1",
+      "password": "user123",
+      "role": "user",
+      "cart": [
+        {
+          "id": "fd1e",
+          "title": "T-Shirts",
+          "price": "5008",
+          "description": "Men's Stylish & Fashionable Trendy Good Looking Long Sleeve Casual Shirt By Tamanna eExport",
+          "image": "https://img.drz.lazcdn.com/static/bd/p/9c9501762b424783140a2038084cb29c.jpg_200x200q80.avif"
+        }
+      ]
+    },
+    {
+      "id": "532c",
+      "username": "rakibul",
+      "password": "1234",
+      "role": "user",
+      "cart": [
+        {
+          "id": "fd1e",
+          "title": "T-Shirts",
+          "price": "5008",
+          "description": "Men's Stylish & Fashionable Trendy Good Looking Long Sleeve Casual Shirt By Tamanna eExport",
+          "image": "https://img.drz.lazcdn.com/static/bd/p/9c9501762b424783140a2038084cb29c.jpg_200x200q80.avif"
+        }
+      ]
+    },
+    {
+      "id": "4a9b",
+      "username": "user45",
+      "password": "1234",
+      "role": "user",
+      "cart": [
+        {
+          "id": "29b2",
+          "title": "Pusti Best Leaf Tea - 50gm",
+          "price": "29",
+          "description": "Very good tea.",
+          "image": "https://lzd-u.slatic.net/71adcc234d854064bd2babe6d7836d76_26d41f3950dc4cbf8730a9fea4461087.jpg"
+        },
+        {
+          "id": "29b2",
+          "title": "Pusti Best Leaf Tea - 50gm",
+          "price": "29",
+          "description": "Very good tea.",
+          "image": "https://lzd-u.slatic.net/71adcc234d854064bd2babe6d7836d76_26d41f3950dc4cbf8730a9fea4461087.jpg"
+        },
+        {
+          "id": "fd1e",
+          "title": "T-Shirts",
+          "price": "5008",
+          "description": "Men's Stylish & Fashionable Trendy Good Looking Long Sleeve Casual Shirt By Tamanna eExport",
+          "image": "https://img.drz.lazcdn.com/static/bd/p/9c9501762b424783140a2038084cb29c.jpg_200x200q80.avif"
+        }
+      ]
+    },
+    {
+      "id": "865c",
+      "username": "user88",
+      "password": "1234",
+      "role": "user",
+      "cart": []
+    }
+  ],
+  "products": [
+    {
+      "id": "29b2",
+      "title": "Pusti Best Leaf Tea - 50gm",
+      "price": "29",
+      "description": "Very good tea.",
+      "image": "https://lzd-u.slatic.net/71adcc234d854064bd2babe6d7836d76_26d41f3950dc4cbf8730a9fea4461087.jpg"
+    },
+    {
+      "id": "7bab",
+      "title": "Napa 500mg",
+      "price": "34",
+      "description": "Napa is a good madicine",
+      "image": "https://img.drz.lazcdn.com/static/bd/p/9c9501762b424783140a2038084cb29c.jpg_200x200q80.avif"
+    },
+    {
+      "id": "3c75",
+      "title": "Napa 75mg",
+      "price": "500",
+      "description": "good product",
+      "image": "https://img.drz.lazcdn.com/static/bd/p/9c9501762b424783140a2038084cb29c.jpg_200x200q80.avif"
+    },
+    {
+      "id": "c00e",
+      "title": "Napa 500mg",
+      "price": "29",
+      "description": "god product",
+      "image": "https://img.drz.lazcdn.com/static/bd/p/9c9501762b424783140a2038084cb29c.jpg_200x200q80.avif"
+    }
+  ],
+  "orders": [
+    {
+      "id": "3edd",
+      "userId": "2",
+      "info": {
+        "name": "Rakibul islam",
+        "phone": "01768726911",
+        "address": "badda,Dhaka"
+      },
+      "items": [
+        {
+          "id": "fd1e",
+          "title": "T-Shirts",
+          "price": "5008",
+          "description": "Men's Stylish & Fashionable Trendy Good Looking Long Sleeve Casual Shirt By Tamanna eExport",
+          "image": "https://img.drz.lazcdn.com/static/bd/p/9c9501762b424783140a2038084cb29c.jpg_200x200q80.avif"
+        }
+      ],
+      "date": "2025-05-22T07:22:23.562Z",
+      "status": "Processing"
+    },
+    {
+      "id": "c54f",
+      "userId": "2",
+      "info": {
+        "name": "Rakibul Islam",
+        "phone": "01768726911",
+        "address": "Dhaka\n704"
+      },
+      "items": [
+        {
+          "id": "fd1e",
+          "title": "T-Shirts",
+          "price": "5008",
+          "description": "Men's Stylish & Fashionable Trendy Good Looking Long Sleeve Casual Shirt By Tamanna eExport",
+          "image": "https://img.drz.lazcdn.com/static/bd/p/9c9501762b424783140a2038084cb29c.jpg_200x200q80.avif",
+          "quantity": 2
+        }
+      ],
+      "date": "2025-05-22T07:27:51.018Z",
+      "status": "Pending"
+    },
+    {
+      "id": "95ca",
+      "userId": "2",
+      "info": {
+        "name": "Rakibul Islam",
+        "phone": "01768726911",
+        "address": "Dhaka\n704"
+      },
+      "items": [
+        {
+          "id": "fd1e",
+          "title": "T-Shirts",
+          "price": "5008",
+          "description": "Men's Stylish & Fashionable Trendy Good Looking Long Sleeve Casual Shirt By Tamanna eExport",
+          "image": "https://img.drz.lazcdn.com/static/bd/p/9c9501762b424783140a2038084cb29c.jpg_200x200q80.avif",
+          "quantity": 1
+        }
+      ],
+      "date": "2025-05-22T07:31:23.057Z",
+      "status": "Pending"
+    },
+    {
+      "id": "6dac",
+      "userId": "4a9b",
+      "info": {
+        "name": "Rakibul islam ",
+        "phone": "01768726911",
+        "address": "Badda,Dhaka"
+      },
+      "items": [
+        {
+          "id": "fd1e",
+          "title": "T-Shirts",
+          "price": "5008",
+          "description": "Men's Stylish & Fashionable Trendy Good Looking Long Sleeve Casual Shirt By Tamanna eExport",
+          "image": "https://img.drz.lazcdn.com/static/bd/p/9c9501762b424783140a2038084cb29c.jpg_200x200q80.avif",
+          "quantity": 3
+        }
+      ],
+      "date": "2025-05-30T04:04:01.810Z",
+      "status": "Cancelled"
+    },
+    {
+      "id": "acfd",
+      "userId": "865c",
+      "info": {
+        "name": "Rakibul islam",
+        "phone": "01768726911",
+        "address": "Satarkul Road,Uttar Badda,Dhaka"
+      },
+      "items": [
+        {
+          "id": "c00e",
+          "title": "Napa 500mg",
+          "price": "29",
+          "description": "god product",
+          "image": "https://img.drz.lazcdn.com/static/bd/p/9c9501762b424783140a2038084cb29c.jpg_200x200q80.avif",
+          "quantity": 4
+        }
+      ],
+      "date": "2025-07-04T06:13:23.079Z",
+      "status": "Delivered"
+    }
+  ]
+}
