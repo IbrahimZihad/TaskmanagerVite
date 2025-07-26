@@ -1,1 +1,1 @@
-export const baseUrl = process.env.REACT_APP_DB_BASE_URL;
+export const baseUrl = process.env.REACT_APP_API_BASE_URL;

@@ -1,15 +1,53 @@
-import {baseUrl} from "../Helper/baseUrlHelper";
+import axios from 'axios';
+import getBaseUrl from '../Helper/baseUrlHelper';
 
-export const getData = async (endpoint) => {
-    try {
-        const response = await fetch(`${baseUrl}${endpoint}`);
-        if (!response.ok) {
-            throw new Error(`GET ${endpoint} failed with status ${response.status}`);
-        }
-        const data = await response.json();
-        return data;
-    } catch (err) {
-        console.error(`Error fetching ${endpoint}:`, err);
-        throw err;
-    }
+const api = axios.create({
+  baseURL: getBaseUrl(),
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+// GET request
+export const getApi = async (endpoint, config = {}) => {
+  try {
+    const response = await api.get(endpoint, config);
+    return response.data;
+  } catch (error) {
+    console.error(`GET ${endpoint} failed:`, error);
+    throw error;
+  }
+};
+
+// POST request
+export const postApi = async (endpoint, data = {}, config = {}) => {
+  try {
+    const response = await api.post(endpoint, data, config);
+    return response.data;
+  } catch (error) {
+    console.error(`POST ${endpoint} failed:`, error);
+    throw error;
+  }
+};
+
+// PUT request
+export const putApi = async (endpoint, data = {}, config = {}) => {
+  try {
+    const response = await api.put(endpoint, data, config);
+    return response.data;
+  } catch (error) {
+    console.error(`PUT ${endpoint} failed:`, error);
+    throw error;
+  }
+};
+
+// DELETE request
+export const deleteApi = async (endpoint, config = {}) => {
+  try {
+    const response = await api.delete(endpoint, config);
+    return response.data;
+  } catch (error) {
+    console.error(`DELETE ${endpoint} failed:`, error);
+    throw error;
+  }
 };
