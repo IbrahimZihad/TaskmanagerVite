@@ -1,122 +1,111 @@
 import Landing from "../pages/public/Landing";
 import Help from "../pages/public/Help";
 import PrivacyPolicy from "../pages/public/PrivacyPolicy";
+
 import Login from "../pages/auth/Login";
 import SignUp from "../pages/auth/SignUp";
 
+import DashboardHome from "../pages/dashboard/DashboardHome";
 import ScrumBoard from "../pages/dashboard/ScrumBoard";
 import Backlog from "../pages/dashboard/Backlog";
 import Summary from "../pages/dashboard/Summary";
 import Team from "../pages/dashboard/Team";
-import Profile from "../user/Profile";
 
-// Optional admin pages
-import AdminDashboard from "../admin/Dashboard";
+import NotFound from "../pages/errors/NotFound";
 
-import PrivateRoute from "../PrivateRoute";
 import PublicLayout from "../components/layout/PublicLayout";
 import PrivateLayout from "../components/layout/PrivateLayout";
 
-// Route definitions
+import { Navigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { useProject } from "../context/ProjectContext";
+
+// Protect routes based on login
+const PrivateRoute = ({ element }) => {
+  const { user } = useAuth();
+  return user ? element : <Navigate to="/login" />;
+};
+
+// Protect project-based routes
+const ProjectProtectedRoute = ({ element }) => {
+  const { user } = useAuth();
+  const { selectedProject } = useProject();
+  if (!user) return <Navigate to="/login" />;
+  if (!selectedProject) return <Navigate to="/dashboard" />;
+  return element;
+};
+
+// All routes
 export const allRoutes = [
-  // Public routes (no auth)
+  // Public Routes
   {
     path: "/",
+    layout: PublicLayout,
     element: Landing,
-    isPrivate: false,
-    layout: PublicLayout
   },
   {
     path: "/help",
+    layout: PublicLayout,
     element: Help,
-    isPrivate: false,
-    layout: PublicLayout
   },
   {
     path: "/privacy-policy",
+    layout: PublicLayout,
     element: PrivacyPolicy,
-    isPrivate: false,
-    layout: PublicLayout
   },
+
+  // Auth Routes
   {
     path: "/login",
+    layout: PublicLayout,
     element: Login,
-    isPrivate: false,
-    layout: PublicLayout
   },
   {
     path: "/signup",
+    layout: PublicLayout,
     element: SignUp,
-    isPrivate: false,
-    layout: PublicLayout
   },
 
-  // Authenticated User Routes
+  // Dashboard Home (project open/create)
   {
     path: "/dashboard",
-    element: ScrumBoard,
-    isPrivate: true,
-    role: "user",
-    layout: PrivateLayout
+    layout: PrivateLayout,
+    element: <PrivateRoute element={<DashboardHome />} />,
+  },
+
+  // Project-dependent routes
+  {
+    path: "/scrumboard",
+    layout: PrivateLayout,
+    element: <ProjectProtectedRoute element={<ScrumBoard />} />,
   },
   {
     path: "/backlog",
-    element: Backlog,
-    isPrivate: true,
-    role: "user",
-    layout: PrivateLayout
+    layout: PrivateLayout,
+    element: <ProjectProtectedRoute element={<Backlog />} />,
   },
   {
     path: "/summary",
-    element: Summary,
-    isPrivate: true,
-    role: "user",
-    layout: PrivateLayout
+    layout: PrivateLayout,
+    element: <ProjectProtectedRoute element={<Summary />} />,
   },
   {
     path: "/team",
-    element: Team,
-    isPrivate: true,
-    role: "user",
-    layout: PrivateLayout
-  },
-  {
-    path: "/profile",
-    element: Profile,
-    isPrivate: true,
-    role: "user",
-    layout: PrivateLayout
+    layout: PrivateLayout,
+    element: <ProjectProtectedRoute element={<Team />} />,
   },
 
-  // Admin Routes (optional)
+  // Fallback route
   {
-    path: "/admin/dashboard",
-    element: AdminDashboard,
-    isPrivate: true,
-    role: "admin",
-    layout: PrivateLayout
-  }
+    path: "*",
+    layout: PublicLayout,
+    element: NotFound,
+  },
 ];
 
-
-
+// Renders the layout and page together
 export const renderRouteElement = (route) => {
-  const Component = route.element;
   const Layout = route.layout || (({ children }) => <>{children}</>);
-
-  if (route.isPrivate) {
-    return (
-      <PrivateRoute role={route.role}>
-        <Layout>
-          <Component />
-        </Layout>
-      </PrivateRoute>
-    );
-  }
-
-  return (
-    <Layout>
-      <Component />
-    </Layout>
-  );
+  const Element = route.element;
+  return <Layout>{Element}</Layout>;
 };
